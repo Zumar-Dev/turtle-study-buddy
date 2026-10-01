@@ -1,4 +1,4 @@
-<img width="450" height="586" alt="image" src="https://github.com/user-attachments/assets/2f255447-d4a3-40c6-91a5-5e734d4aa0f5" /># 🐢 Turtle Study Buddy
+# 🐢 Turtle Study Buddy
 
 A teen-friendly AI study companion with a cute, friendly turtle mascot.
 Ask a question, get a clear explanation, and learn step by step.
