@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f9ff">
+<meta name="description" content="A simple focus timer for study sessions.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/focus.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Go Study Time — Turtle Study Buddy">
+<meta property="og:description" content="A simple focus timer for study sessions.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/focus.html">
+<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/site.css">
+<title>Go Study Time — Turtle Study Buddy</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="app-header">
+  <div class="nav-wrap">
+    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
+    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html">Chat</a><a class="nav-link" href="classroom.html">Classroom</a><a class="nav-link" href="voice.html">Voice</a></nav>
+    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
+    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
+  </div>
+</header>
+<main id="main">
+<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link" href="voice.html">🎙️ Voice</a><a class="side-link active" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="focus-wrap"><div class="app-title"><div><h1>Go Study Time</h1><p>Choose a focus block, start, pause and restart as often as you need.</p></div></div>
+<section class="timer-card"><span class="badge">Focus block</span><div class="timer" id="timer">25:00</div><div class="timer-options"><button type="button" data-minutes="15">15 min</button><button type="button" data-minutes="25">25 min</button><button type="button" data-minutes="45">45 min</button><button type="button" data-minutes="60">60 min</button></div><div class="hero-actions"><button class="btn btn-primary" id="toggleTimer" type="button">Start focus</button><button class="btn btn-secondary" id="resetTimer" type="button">Reset</button></div><p id="timerStatus">25-minute focus session ready.</p></section></div></section></div>
+</main>
+
+<script type="module" src="assets/js/site.js"></script>
+<script type="module" src="assets/js/focus.js"></script>
+</body>
+</html>

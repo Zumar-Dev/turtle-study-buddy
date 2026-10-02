@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /chat.html
+Disallow: /classroom.html
+Disallow: /voice.html
+Disallow: /focus.html
+Disallow: /profile.html
+Disallow: /start.html
+
+Sitemap: https://turtle-study-buddy.pages.dev/sitemap.xml

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f9ff">
+<meta name="description" content="A whiteboard-style guided learning mode with worked examples and practice.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/classroom.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Classroom — Turtle Study Buddy">
+<meta property="og:description" content="A whiteboard-style guided learning mode with worked examples and practice.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/classroom.html">
+<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/css/site.css">
+<title>Classroom — Turtle Study Buddy</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="app-header">
+  <div class="nav-wrap">
+    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
+    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html">Chat</a><a class="nav-link" href="classroom.html" aria-current="page">Classroom</a><a class="nav-link" href="voice.html">Voice</a></nav>
+    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
+    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
+  </div>
+</header>
+<main id="main">
+<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link active" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Classroom</h1><p>Keep the exact question visible while you work through it.</p></div></div>
+<div class="classroom-grid"><div class="rig-card"><img src="assets/turtle/turtle-base@2x.png" width="385" height="580" alt="Turtle Study Buddy standing beside the lesson board"><p>Turtle Teacher</p></div>
+<section class="board"><div class="board-label">Your question</div><h2 id="boardQuestion">Why is 3 × 4 = 12?</h2><div class="field"><label for="classQuestion">Change the question</label><input id="classQuestion" value="Why is 3 × 4 = 12?" maxlength="300"></div><button class="btn btn-primary" id="teachBtn" type="button">Teach this</button><div class="lesson" id="classLesson"><strong>Explain</strong><p>3 × 4 means three groups of four.</p><strong>Demonstrate</strong><p>4 + 4 + 4 = 12.</p><strong>Try</strong><p>What is 4 × 4?</p></div></section></div></section></div>
+</main>
+
+<script type="module" src="assets/js/site.js"></script>
+<script type="module" src="assets/js/classroom.js"></script>
+</body>
+</html>

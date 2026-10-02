@@ -1,0 +1,37 @@
+[
+  [
+    "desktop turtle fully inside circle",
+    true,
+    "{'x': 861.359375, 'y': 180.59375, 'width': 338.78125, 'height': 510.390625} {'x': 782.5625, 'y': 133.796875, 'width': 496.375, 'height': 604}"
+  ],
+  [
+    "desktop no horizontal overflow",
+    true,
+    ""
+  ],
+  [
+    "mobile turtle fully inside circle",
+    true,
+    "{'x': 67.5, 'y': 659.234375, 'width': 254.984375, 'height': 384.140625} {'x': 28.625, 'y': 613.34375, 'width': 332.75, 'height': 475.9375}"
+  ],
+  [
+    "mobile no horizontal overflow",
+    true,
+    ""
+  ],
+  [
+    "voice rig exists",
+    true,
+    ""
+  ],
+  [
+    "voice rig four mouth poses",
+    true,
+    ""
+  ],
+  [
+    "mobile chat no horizontal overflow",
+    true,
+    ""
+  ]
+]

@@ -1,0 +1,155 @@
+TURTLE STUDY BUDDY — COMPLETE PREVIEW QA
+
+[PASS] chat.html: one H1
+[PASS] chat.html: no visible developer Stage 1 wording
+[PASS] chat.html: canonical absolute
+[PASS] chat.html: og:url absolute
+[PASS] chat.html: og:image absolute
+[PASS] chat.html: favicon
+[PASS] chat.html: no inline style/script
+[PASS] chat.html: local refs exist
+[PASS] classroom.html: one H1
+[PASS] classroom.html: no visible developer Stage 1 wording
+[PASS] classroom.html: canonical absolute
+[PASS] classroom.html: og:url absolute
+[PASS] classroom.html: og:image absolute
+[PASS] classroom.html: favicon
+[PASS] classroom.html: no inline style/script
+[PASS] classroom.html: local refs exist
+[PASS] dashboard.html: one H1
+[PASS] dashboard.html: no visible developer Stage 1 wording
+[PASS] dashboard.html: canonical absolute
+[PASS] dashboard.html: og:url absolute
+[PASS] dashboard.html: og:image absolute
+[PASS] dashboard.html: favicon
+[PASS] dashboard.html: no inline style/script
+[PASS] dashboard.html: local refs exist
+[PASS] faq.html: one H1
+[PASS] faq.html: no visible developer Stage 1 wording
+[PASS] faq.html: canonical absolute
+[PASS] faq.html: og:url absolute
+[PASS] faq.html: og:image absolute
+[PASS] faq.html: favicon
+[PASS] faq.html: no inline style/script
+[PASS] faq.html: local refs exist
+[PASS] focus.html: one H1
+[PASS] focus.html: no visible developer Stage 1 wording
+[PASS] focus.html: canonical absolute
+[PASS] focus.html: og:url absolute
+[PASS] focus.html: og:image absolute
+[PASS] focus.html: favicon
+[PASS] focus.html: no inline style/script
+[PASS] focus.html: local refs exist
+[PASS] index.html: one H1
+[PASS] index.html: no visible developer Stage 1 wording
+[PASS] index.html: canonical absolute
+[PASS] index.html: og:url absolute
+[PASS] index.html: og:image absolute
+[PASS] index.html: favicon
+[PASS] index.html: no inline style/script
+[PASS] index.html: local refs exist
+[PASS] pricing.html: one H1
+[PASS] pricing.html: no visible developer Stage 1 wording
+[PASS] pricing.html: canonical absolute
+[PASS] pricing.html: og:url absolute
+[PASS] pricing.html: og:image absolute
+[PASS] pricing.html: favicon
+[PASS] pricing.html: no inline style/script
+[PASS] pricing.html: local refs exist
+[PASS] privacy.html: one H1
+[PASS] privacy.html: no visible developer Stage 1 wording
+[PASS] privacy.html: canonical absolute
+[PASS] privacy.html: og:url absolute
+[PASS] privacy.html: og:image absolute
+[PASS] privacy.html: favicon
+[PASS] privacy.html: no inline style/script
+[PASS] privacy.html: local refs exist
+[PASS] profile.html: one H1
+[PASS] profile.html: no visible developer Stage 1 wording
+[PASS] profile.html: canonical absolute
+[PASS] profile.html: og:url absolute
+[PASS] profile.html: og:image absolute
+[PASS] profile.html: favicon
+[PASS] profile.html: no inline style/script
+[PASS] profile.html: local refs exist
+[PASS] start.html: one H1
+[PASS] start.html: no visible developer Stage 1 wording
+[PASS] start.html: canonical absolute
+[PASS] start.html: og:url absolute
+[PASS] start.html: og:image absolute
+[PASS] start.html: favicon
+[PASS] start.html: no inline style/script
+[PASS] start.html: local refs exist
+[PASS] terms.html: one H1
+[PASS] terms.html: no visible developer Stage 1 wording
+[PASS] terms.html: canonical absolute
+[PASS] terms.html: og:url absolute
+[PASS] terms.html: og:image absolute
+[PASS] terms.html: favicon
+[PASS] terms.html: no inline style/script
+[PASS] terms.html: local refs exist
+[PASS] voice.html: one H1
+[PASS] voice.html: no visible developer Stage 1 wording
+[PASS] voice.html: canonical absolute
+[PASS] voice.html: og:url absolute
+[PASS] voice.html: og:image absolute
+[PASS] voice.html: favicon
+[PASS] voice.html: no inline style/script
+[PASS] voice.html: local refs exist
+[PASS] hero uses external Turtle asset
+[PASS] hero image not rendered above logical size
+[PASS] HiDPI Turtle exists
+[PASS] clean Turtle has alpha
+[PASS] unused duplicate source absent
+[PASS] four mouth shapes
+[PASS] rig body layer
+[PASS] rig arm layer
+[PASS] rig eyelid layer
+[PASS] rig mouth layers
+[PASS] blink animation class
+[PASS] wave animation
+[PASS] talk body animation
+[PASS] responsive desktop/tablet/mobile
+[PASS] CSP no unsafe-inline
+[PASS] CSP connect permits self/CDN/model
+[PASS] CORP cross-origin
+[PASS] timer restarts after zero
+[PASS] no visible paid price
+[PASS] pricing says free for now
+[PASS] guest wording honest
+[PASS] chat starts no fake history
+[PASS] AI Pages Function exists
+[PASS] AI binding server-side
+[PASS] AI input max 1200
+[PASS] AI rate limit
+[PASS] AI origin check
+[PASS] AI safety prompt
+[PASS] voice engine uses HeadTTS
+[PASS] voice uses viseme timing
+[PASS] favicon files
+[PASS] sitemap exists
+[PASS] robots points sitemap
+[PASS] OG image 1200x630
+[PASS] index small
+[PASS] chat.js: JS syntax
+[PASS] classroom.js: JS syntax
+[PASS] focus.js: JS syntax
+[PASS] profile.js: JS syntax
+[PASS] site.js: JS syntax
+[PASS] start.js: JS syntax
+[PASS] turtle-rig.js: JS syntax
+[PASS] voice-engine.js: JS syntax
+[PASS] voice-page.js: JS syntax
+[PASS] chat.js: JS syntax
+[PASS] Chromium: desktop turtle fully inside circle
+[PASS] Chromium: desktop no horizontal overflow
+[PASS] Chromium: mobile turtle fully inside circle
+[PASS] Chromium: mobile no horizontal overflow
+[PASS] Chromium: voice rig exists
+[PASS] Chromium: voice rig four mouth poses
+[PASS] Chromium: mobile chat no horizontal overflow
+
+Result: 148/148 passed.
+
+Browser screenshots: qa/desktop-home.png, qa/mobile-home.png, qa/desktop-voice.png, qa/mobile-chat.png
+Chromium rendering confirmed the Turtle head and feet stay inside the hero circle on both desktop and mobile.

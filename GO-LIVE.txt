@@ -1,0 +1,49 @@
+TURTLE STUDY BUDDY — FREE GO-LIVE
+
+LOCAL CHECK
+1. Double-click START-PREVIEW.cmd.
+2. Your browser opens http://127.0.0.1:4173/
+3. Check Home, Pricing, FAQ, Privacy, Terms, Start as guest, Dashboard, Chat, Classroom, Voice, Go Study Time and Profile.
+
+GITHUB
+1. Go to https://github.com/new
+2. Repository name: turtle-study-buddy
+3. Keep it Public or Private — either is fine.
+4. Click Create repository.
+5. Click Add file > Upload files.
+6. Upload ALL files and folders from the extracted Turtle-Study-Buddy-Live-Preview folder.
+7. Commit directly to main.
+
+CLOUDFLARE PAGES
+1. Open Cloudflare Dashboard.
+2. Go to Workers & Pages.
+3. Click Create application.
+4. Choose Pages / Import an existing Git repository.
+5. Connect GitHub if asked.
+6. Select turtle-study-buddy.
+7. Framework preset: None.
+8. Production branch: main.
+9. Build command: exit 0
+10. Build output directory: .
+11. Click Save and Deploy.
+12. Wait for the free pages.dev URL.
+
+ENABLE FREE AI CHAT
+1. In Cloudflare, open the deployed Turtle Study Buddy Pages project.
+2. Open Settings > Bindings.
+3. Click Add binding.
+4. Choose Workers AI.
+5. Variable name: AI
+6. Save.
+7. Redeploy the latest deployment.
+
+PUBLIC URL / SEO
+The package currently uses https://turtle-study-buddy.pages.dev in canonical/OG/sitemap values.
+If Cloudflare gives you a different pages.dev address:
+1. Double-click SET-PUBLIC-URL.cmd.
+2. Paste the exact https://...pages.dev address.
+3. Press Enter.
+4. Upload/commit the changed HTML, robots.txt and sitemap.xml files to GitHub.
+5. Cloudflare redeploys automatically.
+
+NO PAID ACCOUNT OR API KEY IS REQUIRED FOR THE CURRENT AI SETUP.

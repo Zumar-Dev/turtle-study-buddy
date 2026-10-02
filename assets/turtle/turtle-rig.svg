@@ -1,0 +1,38 @@
+<svg class="turtle-rig-svg" viewBox="0 0 385 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rigTitle rigDesc">
+<title id="rigTitle">Animated Turtle Study Buddy</title>
+<desc id="rigDesc">A layered version of the approved Turtle mascot with blinking eyes, four mouth poses and a waving arm.</desc>
+<defs>
+  <mask id="bodyMask">
+    <rect x="0" y="0" width="385" height="580" fill="white"/>
+    <path d="M246 203 C286 174 335 151 379 178 L385 320 C344 329 297 326 250 291 C235 277 232 237 246 203Z" fill="black"/>
+    <ellipse cx="194" cy="171" rx="50" ry="29" fill="black"/>
+  </mask>
+  <clipPath id="armClip">
+    <path d="M236 194 C275 177 317 150 370 167 C384 182 387 244 381 308 C340 331 289 325 244 289 C230 267 226 225 236 194Z"/>
+  </clipPath>
+  <clipPath id="shoulderClip">
+    <path d="M214 194 C250 190 279 207 292 245 C283 280 253 302 216 285 C203 260 202 220 214 194Z"/>
+  </clipPath>
+</defs>
+<g class="rig-body-wrap">
+  <image class="rig-body" href="assets/turtle/turtle-base@2x.png" x="0" y="0" width="385" height="580" mask="url(#bodyMask)" preserveAspectRatio="xMidYMid meet"/>
+  <g class="rig-shoulder" clip-path="url(#shoulderClip)">
+    <image href="assets/turtle/turtle-base@2x.png" x="0" y="0" width="385" height="580" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <g class="rig-arm" clip-path="url(#armClip)">
+    <image href="assets/turtle/turtle-base@2x.png" x="0" y="0" width="385" height="580" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <g class="rig-mouths">
+    <image class="mouth-shape mouth-closed" href="assets/turtle/mouth-closed.png" x="126" y="128" width="134" height="90"/>
+    <image class="mouth-shape mouth-small" href="assets/turtle/mouth-small.png" x="126" y="128" width="134" height="90"/>
+    <image class="mouth-shape mouth-open is-active" href="assets/turtle/mouth-open.png" x="126" y="128" width="134" height="90"/>
+    <image class="mouth-shape mouth-wide" href="assets/turtle/mouth-wide.png" x="126" y="128" width="134" height="90"/>
+  </g>
+  <g class="rig-eyelids" aria-hidden="true">
+    <path class="eyelid eyelid-left" d="M96 103 C107 70 159 66 174 105 C157 126 113 129 96 103Z"/>
+    <path class="eyelid eyelid-right" d="M216 102 C228 69 278 70 290 104 C276 126 232 126 216 102Z"/>
+    <path class="lash lash-left" d="M102 104 C124 117 151 117 168 103"/>
+    <path class="lash lash-right" d="M221 103 C240 116 270 116 285 103"/>
+  </g>
+</g>
+</svg>
