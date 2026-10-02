@@ -10,7 +10,12 @@ let rig=null,voice=null,voiceModule=null;
 
 function uid(){return `${Date.now()}-${Math.random().toString(36).slice(2,8)}`}
 function cleanText(v,max=3000){return String(v||"").replace(/\u0000/g,"").trim().slice(0,max)}
-function profile(){return Store.get("tsb_profile",{nickname:"Guest",age:"13-15",subject:"Math",style:"Step by step"})}
+function profile(){return Store.get("tsb_profile",{})||{}}
+function visitorId(){
+  let id=Store.get("tsb_visitor_id","");
+  if(!id){id=(crypto.randomUUID?.()||`v-${Date.now()}-${Math.random().toString(36).slice(2)}`);Store.set("tsb_visitor_id",id)}
+  return id;
+}
 
 async function initRig(){
   try{
@@ -98,14 +103,17 @@ async function askAI(q){
   const payload={
     message:q,
     profile:profile(),
-    history:(current?.messages||[]).slice(-10).map(m=>({role:m.role,content:m.content}))
+    history:(current?.messages||[]).slice(0,-1).slice(-10).map(m=>({role:m.role,content:m.content}))
   };
   try{
     const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),30000);
-    const res=await fetch("/api/chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload),signal:controller.signal});
+    const res=await fetch("/api/chat",{method:"POST",headers:{"content-type":"application/json","x-tsb-visitor":visitorId()},body:JSON.stringify(payload),signal:controller.signal});
     clearTimeout(timer);
-    if(!res.ok)throw new Error(`AI service ${res.status}`);
-    const data=await res.json();
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok){
+      if(res.status===429){modeEl.textContent="Free AI limit";return cleanText(data.message||data.error||"Turtle has reached a free usage limit. Please try again later.",1200)}
+      throw new Error(data.error||`AI service ${res.status}`);
+    }
     const answer=cleanText(data.answer,6000);
     if(!answer)throw new Error("Empty AI response");
     modeEl.textContent="Live AI tutor";

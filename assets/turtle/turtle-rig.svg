@@ -1,11 +1,11 @@
 <svg class="turtle-rig-svg" viewBox="0 0 385 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rigTitle rigDesc">
 <title id="rigTitle">Animated Turtle Study Buddy</title>
-<desc id="rigDesc">A layered version of the approved Turtle mascot with blinking eyes, four mouth poses and a waving arm.</desc>
+<desc id="rigDesc">The approved Turtle mascot split into body, right arm, eyelids and four separate mouth poses.</desc>
 <defs>
   <mask id="bodyMask">
     <rect x="0" y="0" width="385" height="580" fill="white"/>
     <path d="M246 203 C286 174 335 151 379 178 L385 320 C344 329 297 326 250 291 C235 277 232 237 246 203Z" fill="black"/>
-    <ellipse cx="194" cy="171" rx="50" ry="29" fill="black"/>
+    <ellipse cx="194" cy="171" rx="56" ry="35" fill="black"/>
   </mask>
   <clipPath id="armClip">
     <path d="M236 194 C275 177 317 150 370 167 C384 182 387 244 381 308 C340 331 289 325 244 289 C230 267 226 225 236 194Z"/>
@@ -13,6 +13,8 @@
   <clipPath id="shoulderClip">
     <path d="M214 194 C250 190 279 207 292 245 C283 280 253 302 216 285 C203 260 202 220 214 194Z"/>
   </clipPath>
+  <clipPath id="mouthPatchClip"><ellipse cx="194" cy="171" rx="58" ry="38"/></clipPath>
+  <linearGradient id="tongue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f38b86"/><stop offset="1" stop-color="#dd625e"/></linearGradient>
 </defs>
 <g class="rig-body-wrap">
   <image class="rig-body" href="assets/turtle/turtle-base@2x.png" x="0" y="0" width="385" height="580" mask="url(#bodyMask)" preserveAspectRatio="xMidYMid meet"/>
@@ -22,12 +24,33 @@
   <g class="rig-arm" clip-path="url(#armClip)">
     <image href="assets/turtle/turtle-base@2x.png" x="0" y="0" width="385" height="580" preserveAspectRatio="xMidYMid meet"/>
   </g>
-  <g class="rig-mouths">
-    <image class="mouth-shape mouth-closed" href="assets/turtle/mouth-closed.png" x="126" y="128" width="134" height="90"/>
-    <image class="mouth-shape mouth-small" href="assets/turtle/mouth-small.png" x="126" y="128" width="134" height="90"/>
-    <image class="mouth-shape mouth-open is-active" href="assets/turtle/mouth-open.png" x="126" y="128" width="134" height="90"/>
-    <image class="mouth-shape mouth-wide" href="assets/turtle/mouth-wide.png" x="126" y="128" width="134" height="90"/>
+
+  <g class="rig-mouth-layer" clip-path="url(#mouthPatchClip)">
+    <image href="assets/turtle/mouth-skin@2x.png" x="125" y="125" width="140" height="100" preserveAspectRatio="none"/>
+
+    <g class="mouth-shape mouth-closed is-active">
+      <path d="M151 169 C171 187 215 190 238 169" fill="none" stroke="#5c2025" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M154 171 C176 182 215 183 235 171" fill="none" stroke="#8d3636" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+    </g>
+
+    <g class="mouth-shape mouth-small">
+      <ellipse cx="194" cy="174" rx="25" ry="9" fill="#5b1e29" stroke="#46151e" stroke-width="2"/>
+      <ellipse cx="194" cy="179" rx="15" ry="4" fill="url(#tongue)" opacity=".9"/>
+    </g>
+
+    <g class="mouth-shape mouth-open">
+      <path d="M158 163 C170 154 218 153 231 164 C229 187 212 197 194 198 C176 198 160 188 158 163Z" fill="#591d29" stroke="#45151d" stroke-width="2.3"/>
+      <path d="M166 162 C181 158 211 158 224 162 C216 168 176 169 166 162Z" fill="#fff9dc" opacity=".96"/>
+      <ellipse cx="194" cy="188" rx="20" ry="7" fill="url(#tongue)"/>
+    </g>
+
+    <g class="mouth-shape mouth-wide">
+      <path d="M149 160 C168 145 221 144 240 160 C238 193 219 207 194 208 C169 207 151 193 149 160Z" fill="#561b28" stroke="#42131b" stroke-width="2.5"/>
+      <path d="M159 158 C178 152 211 152 231 158 C221 167 170 168 159 158Z" fill="#fff9dd"/>
+      <ellipse cx="194" cy="195" rx="26" ry="9" fill="url(#tongue)"/>
+    </g>
   </g>
+
   <g class="rig-eyelids" aria-hidden="true">
     <path class="eyelid eyelid-left" d="M96 103 C107 70 159 66 174 105 C157 126 113 129 96 103Z"/>
     <path class="eyelid eyelid-right" d="M216 102 C228 69 278 70 290 104 C276 126 232 126 216 102Z"/>

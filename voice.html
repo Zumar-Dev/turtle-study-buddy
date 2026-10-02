@@ -31,15 +31,15 @@
   </div>
 </header>
 <main id="main">
-<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link active" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Voice</h1><p>Generate a free neural Turtle voice with real phoneme-timed mouth poses.</p></div></div>
+<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link active" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Voice</h1><p>Turtle tries the free neural voice first, then automatically uses your browser voice if needed.</p></div></div>
 <div class="voice-grid">
 <div class="rig-card"><div class="turtle-rig-host" id="voiceTurtle"></div><button class="btn btn-soft" id="waveVoice" type="button">Wave</button></div>
 <section class="voice-controls"><form id="speakForm"><div class="field"><label for="speechText">What should Turtle say?</label><textarea id="speechText" maxlength="500">Hey! Let’s work through this together, one step at a time.</textarea></div>
 <div class="voice-grid2"><div class="field"><label for="voiceChoice">Voice</label><select id="voiceChoice"><option value="af_sky" selected>Sky — youthful</option><option value="af_heart">Heart — warm</option><option value="af_bella">Bella — clear</option></select></div><div class="field"><label for="voiceSpeed">Speed <span id="speedLabel">0.96</span></label><input id="voiceSpeed" type="range" min=".82" max="1.12" step=".01" value=".96"></div></div>
 <div class="hero-actions"><button class="btn btn-primary" id="speakBtn" type="submit">▶ Generate & speak</button><button class="btn btn-secondary" id="stopVoice" type="button">■ Stop</button></div></form>
-<div class="status" id="voiceStatus">The first voice run downloads the free model to your browser.</div><div class="progress"><i id="voiceProgress"></i></div>
+<div class="status" id="voiceStatus">Press Generate & speak. If the neural voice cannot load within 15 seconds, Turtle automatically uses the browser voice.</div><div class="progress"><i id="voiceProgress"></i></div>
 <div class="readout"><div class="metric"><small>VISEME</small><b id="viseme">idle</b></div><div class="metric"><small>PHONEME</small><b id="phoneme">—</b></div><div class="metric"><small>WORD</small><b id="word">—</b></div></div>
-<div class="notice">The voice runs in the browser with HeadTTS + Kokoro. Real viseme timestamps choose the closed, small, open and wide mouth sprites.</div>
+<div class="notice">Neural speech uses phoneme-timed mouth poses. Browser fallback uses word boundaries plus a speaking rhythm, so Turtle still talks on devices where the neural model cannot load.</div>
 </section></div></section></div>
 </main>
 

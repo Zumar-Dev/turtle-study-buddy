@@ -1,18 +1,17 @@
-
 export class TurtleRig{
   constructor(host){
     this.host=host;
     this.svg=null;
     this.blinkTimer=0;
-    this.mouth="open";
+    this.mouth="closed";
   }
   async init(){
     const url=new URL("../turtle/turtle-rig.svg",import.meta.url);
-    const res=await fetch(url);
+    const res=await fetch(url,{cache:"force-cache"});
     if(!res.ok) throw new Error(`Turtle rig failed to load (${res.status})`);
     this.host.innerHTML=await res.text();
     this.svg=this.host.querySelector(".turtle-rig-svg");
-    this.setMouth("open");
+    this.setMouth("closed");
     this.scheduleBlink();
     return this;
   }
@@ -27,11 +26,11 @@ export class TurtleRig{
   blink(){
     if(!this.svg)return;
     this.svg.classList.add("is-blinking");
-    setTimeout(()=>this.svg?.classList.remove("is-blinking"),150);
+    setTimeout(()=>this.svg?.classList.remove("is-blinking"),145);
   }
   scheduleBlink(){
     clearTimeout(this.blinkTimer);
-    const delay=2800+Math.random()*3800;
+    const delay=2600+Math.random()*3600;
     this.blinkTimer=setTimeout(()=>{this.blink();this.scheduleBlink()},delay);
   }
   wave(){
@@ -44,7 +43,7 @@ export class TurtleRig{
   speaking(on){
     if(!this.svg)return;
     this.svg.classList.toggle("is-speaking",!!on);
-    if(!on)this.setMouth("open");
+    if(!on)this.setMouth("closed");
   }
   destroy(){clearTimeout(this.blinkTimer)}
 }
