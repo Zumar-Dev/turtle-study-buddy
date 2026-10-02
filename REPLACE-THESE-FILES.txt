@@ -1,0 +1,9 @@
+Replace these files in the GitHub repository:
+
+voice.html
+assets/js/voice-engine.js
+assets/js/turtle-rig.js
+assets/turtle/turtle-rig.svg
+
+Commit message:
+Fix Turtle lip sync with viseme mouth poses

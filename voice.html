@@ -39,7 +39,7 @@
 <div class="hero-actions"><button class="btn btn-primary" id="speakBtn" type="submit">▶ Generate & speak</button><button class="btn btn-secondary" id="stopVoice" type="button">■ Stop</button></div></form>
 <div class="status" id="voiceStatus">Press Generate & speak. If the neural voice cannot load within 15 seconds, Turtle automatically uses the browser voice.</div><div class="progress"><i id="voiceProgress"></i></div>
 <div class="readout"><div class="metric"><small>VISEME</small><b id="viseme">idle</b></div><div class="metric"><small>PHONEME</small><b id="phoneme">—</b></div><div class="metric"><small>WORD</small><b id="word">—</b></div></div>
-<div class="notice">Neural speech uses phoneme-timed mouth poses. Browser fallback uses word boundaries plus a speaking rhythm, so Turtle still talks on devices where the neural model cannot load.</div>
+<div class="notice">Neural speech uses timed visemes and Web Audio energy as a fallback. Browser speech uses word-boundary viseme mapping, so the mouth still changes through rest, M/B/P, AA, EE, OH and F/V shapes when the neural model cannot load.</div>
 </section></div></section></div>
 </main>
 
