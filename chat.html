@@ -1,49 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f9ff">
-<meta name="description" content="Ask Turtle a study question and get a guided tutoring response.">
-<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://turtle-study-buddy.pages.dev/chat.html">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chat — Turtle Study Buddy">
-<meta property="og:description" content="Ask Turtle a study question and get a guided tutoring response.">
-<meta property="og:url" content="https://turtle-study-buddy.pages.dev/chat.html">
-<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/site.css">
-<title>Chat — Turtle Study Buddy</title>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="app-header">
-  <div class="nav-wrap">
-    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
-    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html" aria-current="page">Chat</a><a class="nav-link" href="classroom.html">Classroom</a><a class="nav-link" href="voice.html">Voice</a></nav>
-    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
-    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
-  </div>
-</header>
-<main id="main">
-<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link active" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Chat</h1><p>Ask your own question. History stays empty until you really chat.</p></div><span class="badge" id="chatMode">Offline tutor</span></div>
-<div class="chat-layout">
-<aside class="history"><button class="btn btn-primary" id="newChat" type="button">＋ New chat</button><div class="side-title">History</div><div class="history-list" id="historyList"></div></aside>
-<section class="chat-box">
-<div class="chat-head"><div><b>Turtle tutor</b><div class="typing" id="voiceStatus">Voice is ready when needed.</div></div><div><label><input type="checkbox" id="autoSpeak"> Read replies aloud</label></div></div>
-<div class="messages" id="messages"></div>
-<form class="composer" id="chatForm"><textarea id="chatInput" maxlength="1200" required aria-label="Study question" placeholder="Ask Turtle a study question…"></textarea><button class="btn btn-primary" id="sendBtn" type="submit">Send</button></form>
-</section>
-</div>
-<div class="panel"><div class="panel-head"><h2>Talking Turtle</h2><div><select id="voiceChoice" aria-label="Turtle voice"><option value="af_sky">Sky — youthful</option><option value="af_heart">Heart — warm</option><option value="af_bella">Bella — clear</option></select> <button class="btn btn-soft" id="waveBtn" type="button">Wave</button></div></div><div class="turtle-rig-host" id="chatTurtle"></div></div></section></div>
-</main>
-
-<script type="module" src="assets/js/site.js"></script>
-<script type="module" src="assets/js/chat.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fbff">
+<title>Chat — Turtle Study Buddy</title><meta name="description" content="Chat with Turtle Study Buddy."><meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/chat.html"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website"><meta property="og:title" content="Chat — Turtle Study Buddy"><meta property="og:description" content="Chat with Turtle Study Buddy.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/chat.html"><meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="assets/css/site.css">
+</head><body><a class="skip" href="#main">Skip to content</a><header class="site-head"><a class="brand" href="dashboard.html"><span class="brand-avatar"><img src="assets/turtle/turtle-static.png" alt=""></span><span><strong><span class="green-text">Turtle</span> Study Buddy</strong><small>Your learning space</small></span></a><nav class="workspace-nav"><a class="nav-link " href="dashboard.html">Dashboard</a><a class="nav-link active" href="chat.html">Chat</a><a class="nav-link " href="classroom.html">Classroom</a><a class="nav-link " href="voice.html">Voice</a></nav><div class="head-right"><a class="profile-chip" href="profile.html"><img data-profile-avatar src="assets/turtle/turtle-static.png" alt=""><span data-profile-name>Learner</span></a></div></header><main id="main" class="workspace"><div class="panel chat-layout"><aside class="history-rail"><div class="rail-top"><h2>Chat history</h2><button class="new-chat" id="newChat" type="button">＋ New</button></div><div id="threadList"></div><div class="voice-spacer"></div><p class="small-muted">History is saved only in this browser.</p></aside><section class="chat-main"><div class="chat-top"><div><h1>💬 Chat with Turtle</h1><small>Live AI tutor</small></div><span class="chip">Free for now</span></div><div class="chat-messages" id="messages"></div><div class="chat-footer"><div class="suggestions"><button type="button" data-suggest="Hi, Turtle!">👋 Say hello</button><button type="button" data-suggest="What is 2 + 2?">2 + 2</button><button type="button" data-suggest="How do plants make food?">Photosynthesis</button><a href="classroom.html">🧑‍🏫 Open classroom</a></div><form id="chatForm" class="composer"><textarea id="chatInput" aria-label="Message Turtle" rows="1" maxlength="1200" required placeholder="Ask your own study question…"></textarea><button class="btn btn-blue" id="sendBtn" type="submit">Send ➤</button></form><div id="voiceStatus" class="disclaimer">Voice is ready when you choose Read aloud. <span id="voiceProvider"></span></div></div></section></div></main><script type="module" src="assets/js/chat.js"></script></body></html>

@@ -1,49 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f9ff">
-<meta name="description" content="Hear Turtle speak with free browser neural text-to-speech and phoneme-timed lip-sync.">
-<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://turtle-study-buddy.pages.dev/voice.html">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Voice — Turtle Study Buddy">
-<meta property="og:description" content="Hear Turtle speak with free browser neural text-to-speech and phoneme-timed lip-sync.">
-<meta property="og:url" content="https://turtle-study-buddy.pages.dev/voice.html">
-<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/site.css">
-<title>Voice — Turtle Study Buddy</title>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="app-header">
-  <div class="nav-wrap">
-    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
-    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html">Chat</a><a class="nav-link" href="classroom.html">Classroom</a><a class="nav-link" href="voice.html" aria-current="page">Voice</a></nav>
-    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
-    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
-  </div>
-</header>
-<main id="main">
-<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link active" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Voice</h1><p>Turtle tries the free neural voice first, then automatically uses your browser voice if needed.</p></div></div>
-<div class="voice-grid">
-<div class="rig-card"><div class="turtle-rig-host" id="voiceTurtle"></div><button class="btn btn-soft" id="waveVoice" type="button">Wave</button></div>
-<section class="voice-controls"><form id="speakForm"><div class="field"><label for="speechText">What should Turtle say?</label><textarea id="speechText" maxlength="500">Hey! Let’s work through this together, one step at a time.</textarea></div>
-<div class="voice-grid2"><div class="field"><label for="voiceChoice">Voice</label><select id="voiceChoice"><option value="af_sky" selected>Sky — youthful</option><option value="af_heart">Heart — warm</option><option value="af_bella">Bella — clear</option></select></div><div class="field"><label for="voiceSpeed">Speed <span id="speedLabel">0.96</span></label><input id="voiceSpeed" type="range" min=".82" max="1.12" step=".01" value=".96"></div></div>
-<div class="hero-actions"><button class="btn btn-primary" id="speakBtn" type="submit">▶ Generate & speak</button><button class="btn btn-secondary" id="stopVoice" type="button">■ Stop</button></div></form>
-<div class="status" id="voiceStatus">Press Generate & speak. If the neural voice cannot load within 15 seconds, Turtle automatically uses the browser voice.</div><div class="progress"><i id="voiceProgress"></i></div>
-<div class="readout"><div class="metric"><small>VISEME</small><b id="viseme">idle</b></div><div class="metric"><small>PHONEME</small><b id="phoneme">—</b></div><div class="metric"><small>WORD</small><b id="word">—</b></div></div>
-<div class="notice">Neural speech uses timed visemes and Web Audio energy as a fallback. Browser speech uses word-boundary viseme mapping, so the mouth still changes through rest, M/B/P, AA, EE, OH and F/V shapes when the neural model cannot load.</div>
-</section></div></section></div>
-</main>
-
-<script type="module" src="assets/js/site.js"></script>
-<script type="module" src="assets/js/voice-page.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fbff">
+<title>Voice — Turtle Study Buddy</title><meta name="description" content="Hear Turtle Study Buddy read a short explanation aloud."><meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/voice.html"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website"><meta property="og:title" content="Voice — Turtle Study Buddy"><meta property="og:description" content="Hear Turtle Study Buddy read a short explanation aloud.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/voice.html"><meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="assets/css/site.css">
+</head><body><a class="skip" href="#main">Skip to content</a><header class="site-head"><a class="brand" href="dashboard.html"><span class="brand-avatar"><img src="assets/turtle/turtle-static.png" alt=""></span><span><strong><span class="green-text">Turtle</span> Study Buddy</strong><small>Your learning space</small></span></a><nav class="workspace-nav"><a class="nav-link " href="dashboard.html">Dashboard</a><a class="nav-link " href="chat.html">Chat</a><a class="nav-link " href="classroom.html">Classroom</a><a class="nav-link active" href="voice.html">Voice</a></nav><div class="head-right"><a class="profile-chip" href="profile.html"><img data-profile-avatar src="assets/turtle/turtle-static.png" alt=""><span data-profile-name>Learner</span></a></div></header><main id="main" class="workspace"><div class="panel voice-layout"><aside class="voice-rail"><h3>Voice sessions</h3><div class="rail-heading">Today</div><div class="voice-item">No saved sessions</div><div class="rail-heading">Yesterday</div><div class="voice-item">No sessions</div><div class="rail-heading">Previous</div><div class="voice-item">No sessions</div><div class="voice-spacer"></div><a class="btn btn-green full" href="voice.html">＋ New voice session</a></aside><section class="voice-stage"><span class="voice-status" id="voiceStatus">Ready · voice provider will be shown here</span><img id="voiceTurtle" src="assets/turtle/turtle-static.png" alt="Large standing Turtle Study Buddy"><h1>Talk with Turtle</h1><p>Type a short line or use the sample. Turtle will try the server voice first and fall back to your browser voice automatically.</p><textarea class="voice-text" id="voiceText" maxlength="250">Hello! I’m Turtle. Tell me what you’re studying, and we’ll work through it one step at a time.</textarea><div class="wave" id="voiceWave"><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span><span class="bar bar-7"></span><span class="bar bar-0"></span><span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span><span class="bar bar-4"></span><span class="bar bar-5"></span><span class="bar bar-6"></span></div><div class="voice-controls"><button type="button" class="btn btn-light" id="typeInstead">✎ Type Instead</button><button type="button" class="voice-mic" id="voiceStart" aria-label="Play Turtle voice">🎙</button><button type="button" class="btn btn-light" id="voicePreview">▶ Preview Voice</button><button type="button" class="btn btn-light" id="voiceStop">■ Stop</button></div><p class="small-muted">Using: <span class="voice-provider" id="voiceProvider">not started</span></p><p class="speaker-note">The Turtle image stays static. While audio plays it only gets a soft speaking glow/bounce.</p></section></div></main><script type="module" src="assets/js/voice-page.js"></script></body></html>

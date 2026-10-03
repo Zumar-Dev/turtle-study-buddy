@@ -1,40 +1,26 @@
 
-const qs=(s,r=document)=>r.querySelector(s);
-const qsa=(s,r=document)=>[...r.querySelectorAll(s)];
-
 export const Store={
-  get(k,fallback=null){try{const v=localStorage.getItem(k);return v===null?fallback:JSON.parse(v)}catch{return fallback}},
-  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}},
-  remove(k){try{localStorage.removeItem(k)}catch{}}
+  get(key,fallback=null){try{const v=localStorage.getItem(key);return v==null?fallback:JSON.parse(v)}catch{return fallback}},
+  set(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch{}},
+  del(key){try{localStorage.removeItem(key)}catch{}}
 };
-
-const DARK_KEY="tsb_dark";
-if(Store.get(DARK_KEY,false)) document.body.classList.add("dark");
-
-qsa("[data-theme-toggle]").forEach(btn=>btn.addEventListener("click",()=>{
-  document.body.classList.toggle("dark");
-  Store.set(DARK_KEY,document.body.classList.contains("dark"));
-}));
-
-const menu=qs("[data-mobile-menu]");
-const menuBtn=qs("[data-menu-button]");
-if(menu && menuBtn){
-  menuBtn.addEventListener("click",()=>menu.classList.toggle("open"));
-  menu.addEventListener("click",e=>{if(e.target.closest("a"))menu.classList.remove("open")});
+export function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+export function profile(){return Store.get("tsb_profile",{})||{}}
+export function visitorId(){
+  let id=Store.get("tsb_visitor_id","");
+  if(!id){id=crypto.randomUUID?.()||`v-${Date.now()}-${Math.random().toString(36).slice(2)}`;Store.set("tsb_visitor_id",id)}
+  return id;
 }
-
-qsa("[data-start-guest]").forEach(el=>el.addEventListener("click",()=>{
-  location.href="start.html";
-}));
-
-qsa("[data-open-dashboard]").forEach(el=>el.addEventListener("click",()=>{
-  location.href="dashboard.html";
-}));
-
-const profile=Store.get("tsb_profile",null);
-qsa("[data-profile-name]").forEach(el=>el.textContent=profile?.nickname||"Guest");
-qsa("[data-profile-age]").forEach(el=>el.textContent=profile?.age||"10+");
-
-export function escapeText(s){
-  return String(s??"").replace(/[<>&"'`]/g,m=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#39;","`":"&#96;"}[m]));
+export function dayGroup(ts){
+  const a=new Date(ts),today=new Date(),y=new Date();y.setDate(today.getDate()-1);
+  if(a.toDateString()===today.toDateString())return"Today";
+  if(a.toDateString()===y.toDateString())return"Yesterday";
+  return"Previous";
 }
+export function formatDuration(sec){const m=Math.floor(sec/60),s=sec%60;return`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`}
+export function initShell(){
+  const p=profile();
+  document.querySelectorAll("[data-profile-name]").forEach(el=>el.textContent=p.nickname||"Learner");
+  document.querySelectorAll("[data-profile-avatar]").forEach(el=>{if(p.photo)el.src=p.photo});
+}
+initShell();

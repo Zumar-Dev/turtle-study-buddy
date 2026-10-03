@@ -1,42 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f9ff">
-<meta name="description" content="A whiteboard-style guided learning mode with worked examples and practice.">
-<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://turtle-study-buddy.pages.dev/classroom.html">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Classroom — Turtle Study Buddy">
-<meta property="og:description" content="A whiteboard-style guided learning mode with worked examples and practice.">
-<meta property="og:url" content="https://turtle-study-buddy.pages.dev/classroom.html">
-<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/site.css">
-<title>Classroom — Turtle Study Buddy</title>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="app-header">
-  <div class="nav-wrap">
-    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
-    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html">Chat</a><a class="nav-link" href="classroom.html" aria-current="page">Classroom</a><a class="nav-link" href="voice.html">Voice</a></nav>
-    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
-    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
-  </div>
-</header>
-<main id="main">
-<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link active" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>Classroom</h1><p>Keep the exact question visible while you work through it.</p></div></div>
-<div class="classroom-grid"><div class="rig-card"><div class="turtle-rig-host" id="classTurtle" aria-label="Animated Turtle Study Buddy teacher"></div><p>Turtle Teacher</p></div>
-<section class="board"><div class="board-label">Your question</div><h2 id="boardQuestion">Why is 3 × 4 = 12?</h2><div class="field"><label for="classQuestion">Change the question</label><input id="classQuestion" value="Why is 3 × 4 = 12?" maxlength="300"></div><button class="btn btn-primary" id="teachBtn" type="button">Teach this</button><div class="typing" id="classStatus" role="status" aria-live="polite">Ask any study question.</div><div class="lesson" id="classLesson"><strong>Ready</strong><p>Press “Teach this” and Turtle will build Explain, Demonstrate and Try steps for your exact question.</p></div></section></div></section></div>
-</main>
-
-<script type="module" src="assets/js/site.js"></script>
-<script type="module" src="assets/js/classroom.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fbff">
+<title>Classroom — Turtle Study Buddy</title><meta name="description" content="Learn step by step with Turtle Study Buddy on a digital whiteboard."><meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/classroom.html"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website"><meta property="og:title" content="Classroom — Turtle Study Buddy"><meta property="og:description" content="Learn step by step with Turtle Study Buddy on a digital whiteboard.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/classroom.html"><meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="assets/css/site.css">
+</head><body><a class="skip" href="#main">Skip to content</a><header class="site-head"><a class="brand" href="dashboard.html"><span class="brand-avatar"><img src="assets/turtle/turtle-static.png" alt=""></span><span><strong><span class="green-text">Turtle</span> Study Buddy</strong><small>Your learning space</small></span></a><nav class="workspace-nav"><a class="nav-link " href="dashboard.html">Dashboard</a><a class="nav-link " href="chat.html">Chat</a><a class="nav-link active" href="classroom.html">Classroom</a><a class="nav-link " href="voice.html">Voice</a></nav><div class="head-right"><a class="profile-chip" href="profile.html"><img data-profile-avatar src="assets/turtle/turtle-static.png" alt=""><span data-profile-name>Learner</span></a></div></header><main id="main" class="workspace"><div class="study-page"><div class="classroom-layout"><section class="panel classroom-main"><header class="study-bar"><div><h1>🧑‍🏫 Classroom</h1><p>Your question stays visible on the whiteboard while Turtle teaches it.</p></div><form class="study-entry" id="studyForm"><select id="studySubject" aria-label="Subject"><option>Math</option><option>Science</option><option>English</option><option>Computer Science</option><option>History</option><option>Geography</option><option>Languages</option><option>Exam Prep</option></select><input id="studyQuery" required maxlength="600" placeholder="Enter your own question e.g. 2 + 2 = ?" aria-label="Question for Classroom whiteboard"><button class="btn btn-blue small-btn" id="teachBtn" type="submit">Teach this →</button></form></header><div class="classroom-scene"><span class="voice-label" id="speakingLabel">🧑‍🏫 Teacher Turtle</span><div class="teacher-figure"><img id="teacherTurtle" src="assets/turtle/turtle-teacher.png" alt="Turtle wearing glasses and holding a wooden pointer"></div><div class="board-frame"><div class="board" id="boardContent"><span class="board-label">CLASSROOM WHITEBOARD · READY</span><div class="board-question"><small>QUESTION</small>What are we learning today?</div><p class="board-text">Type any study question above. Turtle will build a short live AI lesson for that exact question.</p></div></div></div><div class="lesson-tools"><div class="tools-left"><button class="btn btn-light small-btn" type="button" id="studyPrev">← Previous</button><button class="btn btn-light small-btn" type="button" id="studyHint">💡 Hint</button><button class="btn btn-light small-btn" type="button" id="studySpeak">🔊 Speak / replay</button></div><div class="tools-right"><button class="btn btn-light small-btn" type="button" id="studyMute">◻ Stop voice</button><button class="btn btn-blue small-btn" type="button" id="studyNext">Next step →</button></div></div></section><aside class="panel study-side"><h3>Lesson progress</h3><div id="studyProgress"><div class="side-step on"><span>1. Explain</span>●</div><div class="side-step"><span>2. Show on whiteboard</span></div><div class="side-step"><span>3. Try it</span></div><div class="side-step"><span>4. Practice</span></div></div><div class="study-card">Teacher Turtle uses the approved static classroom pose with glasses and pointer. The board itself is live HTML.</div><h3>Quick samples</h3><button class="btn btn-light small-btn full" data-study-example="What is 2 + 2?" type="button">What is 2 + 2?</button><button class="btn btn-light small-btn full" data-study-example="Solve 3x + 5 = 20" type="button">Solve an equation</button><button class="btn btn-light small-btn full" data-study-example="How do plants make food?" type="button">Photosynthesis</button><p class="small-muted">Voice: <span id="classVoiceProvider">ready</span></p></aside></div><section class="study-activity"><div class="panel activity-card"><h3>✍ Try it yourself</h3><p id="practiceQuestion">After Turtle explains a topic, a related practice question appears here.</p><div id="practiceBox" class="practice-hidden"><form class="answer-form" id="answerForm"><input id="practiceAnswer" maxlength="200" placeholder="Type your answer" required><button type="submit" class="btn btn-green">Check answer</button></form></div><div id="practiceFeedback" class="feedback"></div></div><div class="panel activity-card"><h3>Step-by-step support</h3><p>Move back and forward, ask for a hint, or replay the current explanation.</p><div class="tools-left"><button class="btn btn-light small-btn" id="practiceHint" type="button">Hint</button><button class="btn btn-blue small-btn" id="startPractice" type="button">Start practice →</button></div></div></section></div></main><script type="module" src="assets/js/classroom.js"></script></body></html>

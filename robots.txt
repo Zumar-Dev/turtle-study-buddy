@@ -7,5 +7,6 @@ Disallow: /voice.html
 Disallow: /focus.html
 Disallow: /profile.html
 Disallow: /start.html
+Disallow: /pricing.html
 
 Sitemap: https://turtle-study-buddy.pages.dev/sitemap.xml

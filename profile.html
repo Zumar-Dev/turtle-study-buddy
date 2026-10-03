@@ -1,42 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7f9ff">
-<meta name="description" content="Manage the local guest study profile.">
-<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://turtle-study-buddy.pages.dev/profile.html">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="My Profile — Turtle Study Buddy">
-<meta property="og:description" content="Manage the local guest study profile.">
-<meta property="og:url" content="https://turtle-study-buddy.pages.dev/profile.html">
-<meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/css/site.css">
-<title>My Profile — Turtle Study Buddy</title>
-</head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="app-header">
-  <div class="nav-wrap">
-    <a class="brand" href="dashboard.html"><img src="favicon.png" alt=""><span class="brand-word"><b>Turtle</b><small>STUDY BUDDY</small></span></a>
-    <nav class="app-nav" aria-label="Workspace"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="chat.html">Chat</a><a class="nav-link" href="classroom.html">Classroom</a><a class="nav-link" href="voice.html">Voice</a></nav>
-    <button class="btn btn-soft icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
-    <a class="btn btn-secondary profile-button" href="profile.html">My Profile</a>
-  </div>
-</header>
-<main id="main">
-<div class="app-shell"><aside class="sidebar"><div class="side-title">Workspace</div><a class="side-link" href="dashboard.html">🏠 Dashboard</a><a class="side-link" href="chat.html">💬 Chat</a><a class="side-link" href="classroom.html">🧑‍🏫 Classroom</a><a class="side-link" href="voice.html">🎙️ Voice</a><a class="side-link" href="focus.html">⏱️ Go Study Time</a><div class="side-title">Account</div><a class="side-link active" href="profile.html">👤 My Profile</a></aside><section class="app-main"><div class="app-title"><div><h1>My Profile</h1><p>Only the study preferences needed for guest mode are stored on this device.</p></div></div>
-<div class="profile-grid"><section class="panel profile-summary"><div class="avatar">🐢</div><h2 id="profileName">Guest</h2><p id="profileMeta">13-15 · Math</p><button class="btn btn-secondary" id="resetProfile" type="button">Reset guest data</button></section>
-<section class="panel"><form class="form-grid" id="profileForm"><div class="field"><label for="nickname">Nickname</label><input id="nickname" maxlength="24" required></div><div class="field"><label for="age">Age band</label><select id="age"><option>10-12</option><option>13-15</option><option>16-17</option><option>18+</option></select></div><div class="field"><label for="subject">Favourite subject</label><select id="subject"><option>Math</option><option>Science</option><option>English</option><option>Computer Science</option><option>History</option><option>Geography</option><option>Languages</option><option>Exam Prep</option></select></div><div class="field"><label for="style">Explanation style</label><select id="style"><option>Step by step</option><option>Short and direct</option><option>Examples first</option><option>Visual explanation</option></select></div><div><button class="btn btn-primary" type="submit">Save changes</button> <span id="saved"></span></div></form></section></div></section></div>
-</main>
-
-<script type="module" src="assets/js/site.js"></script>
-<script type="module" src="assets/js/profile.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7fbff">
+<title>Profile — Turtle Study Buddy</title><meta name="description" content="Edit your local Turtle Study Buddy guest profile."><meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://turtle-study-buddy.pages.dev/profile.html"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website"><meta property="og:title" content="Profile — Turtle Study Buddy"><meta property="og:description" content="Edit your local Turtle Study Buddy guest profile.">
+<meta property="og:url" content="https://turtle-study-buddy.pages.dev/profile.html"><meta property="og:image" content="https://turtle-study-buddy.pages.dev/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="assets/css/site.css">
+</head><body><a class="skip" href="#main">Skip to content</a><header class="site-head"><a class="brand" href="dashboard.html"><span class="brand-avatar"><img src="assets/turtle/turtle-static.png" alt=""></span><span><strong><span class="green-text">Turtle</span> Study Buddy</strong><small>Your learning space</small></span></a><nav class="workspace-nav"><a class="nav-link " href="dashboard.html">Dashboard</a><a class="nav-link " href="chat.html">Chat</a><a class="nav-link " href="classroom.html">Classroom</a><a class="nav-link " href="voice.html">Voice</a></nav><div class="head-right"><a class="profile-chip" href="profile.html"><img data-profile-avatar src="assets/turtle/turtle-static.png" alt=""><span data-profile-name>Learner</span></a></div></header><main id="main" class="workspace"><div class="profile-page-grid"><section class="panel profile-card"><img id="profilePreview" src="assets/turtle/turtle-static.png" alt=""><h2 data-profile-name>Learner</h2><p class="small-muted">Guest profile · saved only in this browser</p><button class="btn btn-light" id="clearProfile" type="button">Delete local data</button></section><section class="panel padd"><h1>My Profile</h1><p class="guest-note">This information stays on this device. Use a nickname rather than a legal name.</p><form class="profile-form" id="profileForm"><label class="field">Nickname<input id="nickname" maxlength="24" required></label><label class="field">Age band<select id="age"><option>10-12</option><option>13-15</option><option>16-17</option><option>18+</option></select></label><label class="field">Main subject<select id="subject"><option>Math</option><option>Science</option><option>English</option><option>Computer Science</option><option>History</option><option>Geography</option><option>Languages</option><option>Exam Prep</option></select></label><label class="field">Explanation style<select id="style"><option>Step by step</option><option>Short and direct</option><option>Examples first</option><option>Visual explanation</option></select></label><div class="wide"><button class="btn btn-blue" type="submit">Save changes</button> <span id="saveStatus" class="small-muted"></span></div></form></section></div></main><script type="module" src="assets/js/profile.js"></script></body></html>

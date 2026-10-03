@@ -1,25 +1,7 @@
 
-import {Store} from "./site.js";
-const form=document.querySelector("#profileForm");
-const p=Store.get("tsb_profile",{nickname:"Guest",age:"13-15",subject:"Math",style:"Step by step"});
-const $=s=>document.querySelector(s);
-$("#nickname").value=p.nickname||"Guest";
-$("#age").value=p.age||"13-15";
-$("#subject").value=p.subject||"Math";
-$("#style").value=p.style||"Step by step";
-$("#profileName").textContent=p.nickname||"Guest";
-$("#profileMeta").textContent=`${p.age||"13-15"} · ${p.subject||"Math"}`;
-form?.addEventListener("submit",e=>{
-  e.preventDefault();
-  const next={nickname:$("#nickname").value.trim().slice(0,24)||"Guest",age:$("#age").value,subject:$("#subject").value,style:$("#style").value};
-  Store.set("tsb_profile",next);
-  $("#profileName").textContent=next.nickname;
-  $("#profileMeta").textContent=`${next.age} · ${next.subject}`;
-  $("#saved").textContent="Saved on this device.";
-  setTimeout(()=>$("#saved").textContent="",2200);
-});
-$("#resetProfile")?.addEventListener("click",()=>{
-  if(confirm("Reset the local guest profile and chat history on this device?")){
-    Store.remove("tsb_profile");Store.remove("tsb_chat_sessions");location.href="index.html";
-  }
-});
+import {Store,profile} from "./site.js";
+const $=s=>document.querySelector(s),p=profile();
+$("#nickname").value=p.nickname||"";$("#age").value=p.age||"13-15";$("#subject").value=p.subject||"Math";$("#style").value=p.style||"Step by step";
+if(p.photo)$("#profilePreview").src=p.photo;
+$("#profileForm")?.addEventListener("submit",e=>{e.preventDefault();const next={...p,nickname:$("#nickname").value.trim().slice(0,24)||"Learner",age:$("#age").value,subject:$("#subject").value,style:$("#style").value};Store.set("tsb_profile",next);$("#saveStatus").textContent="Saved on this device.";setTimeout(()=>$("#saveStatus").textContent="",1800)});
+$("#clearProfile")?.addEventListener("click",()=>{if(confirm("Delete your local Turtle profile and app history from this browser?")){["tsb_profile","tsb_chat_sessions","tsb_focus_history"].forEach(Store.del);location.href="start.html"}})
