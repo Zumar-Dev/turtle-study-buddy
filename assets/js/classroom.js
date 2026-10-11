@@ -1,6 +1,7 @@
 
 import {profile,visitorId} from "./site.js";
 import {TurtleAudio} from "./audio.js";
+import {isSignedIn,saveClassroomSession} from "./supabase.js";
 const $=s=>document.querySelector(s);
 const input=$("#studyQuery"),subject=$("#studySubject"),board=$("#boardContent"),progress=$("#studyProgress");
 const teacher=$("#teacherTurtle"),status=$("#speakingLabel");
@@ -25,7 +26,7 @@ async function buildLesson(){
   try{
     const res=await fetch("/api/chat",{method:"POST",headers:{"content-type":"application/json","x-tsb-visitor":visitorId()},body:JSON.stringify({mode:"classroom",message:q,profile:profile(),subject:subject.value})});
     const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.message||data.error||"Classroom is temporarily unavailable.");
-    lesson={...data.lesson,question:q};step=0;practice=false;render();status.textContent="🧑‍🏫 Teacher Turtle";await audio.speak(lesson.explain)
+    lesson={...data.lesson,question:q};step=0;practice=false;render();status.textContent="🧑‍🏫 Teacher Turtle";if(isSignedIn())saveClassroomSession({question:q,subject:subject.value,lesson:data.lesson}).catch(err=>console.warn("Classroom sync",err));await audio.speak(lesson.explain)
   }catch(err){status.textContent=err.message;board.innerHTML=`<span class="board-label">CLASSROOM</span><div class="board-question">${escapeHtml(q)}</div><p class="board-text">${escapeHtml(err.message)}</p>`}
   finally{$("#teachBtn").disabled=false;board.removeAttribute("aria-busy")}
 }

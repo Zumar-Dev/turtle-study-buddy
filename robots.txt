@@ -8,5 +8,6 @@ Disallow: /focus.html
 Disallow: /profile.html
 Disallow: /start.html
 Disallow: /pricing.html
+Disallow: /auth-callback.html
 
 Sitemap: https://turtle-study-buddy.pages.dev/sitemap.xml

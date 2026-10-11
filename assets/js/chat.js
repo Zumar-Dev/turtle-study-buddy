@@ -1,6 +1,7 @@
 
 import {Store,profile,visitorId,dayGroup,esc} from "./site.js";
 import {TurtleAudio} from "./audio.js";
+import {isSignedIn,hydrateFromCloud,syncThread} from "./supabase.js";
 const $=s=>document.querySelector(s);
 let sessions=Store.get("tsb_chat_sessions",[])||[],current=null;
 const history=$("#threadList"),messages=$("#messages"),input=$("#chatInput"),form=$("#chatForm");
@@ -32,7 +33,7 @@ function renderMessages(){
   if(!current?.messages?.length){messages.innerHTML=`<div class="welcome-chat"><img id="chatTurtle" class="turtle-small" src="assets/turtle/turtle-static.png" alt="Turtle Study Buddy"><h2>Ask Turtle anything you're studying.</h2><p class="muted">Ask in your own words. Turtle will explain without pretending you said things you didn't.</p></div>`;speaker.image=$("#chatTurtle");return}
   current.messages.forEach((m,i)=>messages.append(bubble(m,i)));messages.scrollTop=messages.scrollHeight;speaker.image=messages.querySelector(".message-row.assistant:last-of-type img")||$("#chatTurtle")||speaker.image
 }
-function save(){if(!current)return;const i=sessions.findIndex(x=>x.id===current.id);if(i>=0)sessions[i]=current;else sessions.push(current);sessions=sessions.slice(-30);Store.set("tsb_chat_sessions",sessions);renderHistory()}
+function save(){if(!current)return;const i=sessions.findIndex(x=>x.id===current.id);if(i>=0)sessions[i]=current;else sessions.push(current);sessions=sessions.slice(-30);Store.set("tsb_chat_sessions",sessions);renderHistory();if(isSignedIn())syncThread(current).then(()=>Store.set("tsb_chat_sessions",sessions)).catch(err=>console.warn("Chat sync",err))}
 async function askAI(q){
   const res=await fetch("/api/chat",{method:"POST",headers:{"content-type":"application/json","x-tsb-visitor":visitorId()},body:JSON.stringify({message:q,profile:profile(),history:(current?.messages||[]).slice(0,-1).slice(-10).map(m=>({role:m.role,content:m.content}))})});
   const data=await res.json().catch(()=>({}));
@@ -48,6 +49,7 @@ form?.addEventListener("submit",async e=>{e.preventDefault();const q=clean(input
   finally{$("#sendBtn").disabled=false}
 });
 $("#newChat")?.addEventListener("click",()=>{current=null;renderHistory();renderMessages();input.focus()});
-renderHistory();renderMessages();
+async function init(){if(isSignedIn()){try{await hydrateFromCloud();sessions=Store.get("tsb_chat_sessions",[])||[]}catch(err){console.warn("Chat hydrate",err)}}renderHistory();renderMessages()}
+init();
 
 for(const b of document.querySelectorAll("[data-suggest]"))b.addEventListener("click",()=>{input.value=b.dataset.suggest;input.focus()});
