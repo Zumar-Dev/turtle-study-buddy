@@ -27,12 +27,16 @@ export function acceptRedirectSession(values){
   if(!session.user){try{let part=session.access_token.split(".")[1].replace(/-/g,"+").replace(/_/g,"/");while(part.length%4)part+="=";const payload=JSON.parse(atob(part));session.user={id:payload.sub,email:payload.email||""}}catch{}}
   persistSession(session);return session;
 }
-function persistSession(session){if(session)saveLocal(SESSION_KEY,session);else delLocal(SESSION_KEY)}
+function persistSession(session){
+  if(!session){delLocal(SESSION_KEY);return}
+  try{localStorage.setItem(SESSION_KEY,JSON.stringify(session))}
+  catch{throw new Error("Your browser could not save the sign-in session. Allow site storage and request a new link.")}
+}
 
 export async function sendEmailOtp(email){
   const value=cleanEmail(email);
   if(!/^\S+@\S+\.\S+$/.test(value))throw new Error("Enter a valid email address.");
-  const res=await fetch(`${SUPABASE_URL}/auth/v1/otp`,{method:"POST",headers:authHeaders(),body:JSON.stringify({email:value,create_user:true,redirect_to:`${location.origin}/auth-callback.html`})});
+  const res=await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=${encodeURIComponent(`${location.origin}/auth-callback.html`)}`,{method:"POST",headers:authHeaders(),body:JSON.stringify({email:value,create_user:true})});
   const data=await res.json().catch(()=>({}));
   if(!res.ok)throw new Error(errMessage(data,res.status));
   return {email:value};
@@ -161,3 +165,38 @@ export async function saveClassroomSession(row){const s=await ensureSession();if
 export async function saveFocusSession(row){const s=await ensureSession();if(!s)return false;row.id=/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(row.id||"")?row.id:uuid();return dbUpsert("focus_sessions",{id:row.id,user_id:s.user.id,subject:String(row.subject||"General").slice(0,60),goal:String(row.goal||"").slice(0,300),planned_minutes:Number(row.plannedMin||0)||null,seconds_spent:Math.max(0,Number(row.seconds||0)||0),completed:!!row.completed,created_at:new Date(row.at||Date.now()).toISOString()},"id")}
 
 export {SUPABASE_URL};
+
+// This site intentionally uses Supabase's browser-only implicit email flow.
+const AUTH_KEYS=["access_token","refresh_token","expires_in","expires_at","token_type","type","error","error_code","error_description","token_hash","code"];
+export function authPayload(href=location.href){
+  const url=new URL(href),params=new URLSearchParams(url.search);
+  for(const [k,v] of new URLSearchParams(url.hash.slice(1)))if(AUTH_KEYS.includes(k))params.set(k,v);
+  return params;
+}
+export function hasAuthPayload(href=location.href){const p=authPayload(href);return AUTH_KEYS.filter(k=>!["type","expires_in","expires_at","token_type"].includes(k)).some(k=>p.has(k))}
+export function clearAuthUrl(){
+  const url=new URL(location.href);
+  for(const k of AUTH_KEYS)url.searchParams.delete(k);
+  if(url.hash.includes("=")){const h=new URLSearchParams(url.hash.slice(1));for(const k of AUTH_KEYS)h.delete(k);url.hash=h.toString()}
+  history.replaceState(null,"",url.pathname+url.search+url.hash);
+}
+export async function completeEmailLink(href=location.href){
+  const p=authPayload(href);clearAuthUrl();
+  if(p.has("error")||p.has("error_code")||p.has("error_description"))throw new Error("This sign-in link is invalid, expired, or already used. Request a new link and open the newest email.");
+  let session;
+  if(p.get("token_hash")){
+    const type=p.get("type")||"email";
+    if(!["email","magiclink","signup"].includes(type))throw new Error("This link is not an email sign-in link. Request a new one.");
+    const res=await fetch(`${SUPABASE_URL}/auth/v1/verify`,{method:"POST",headers:authHeaders(),body:JSON.stringify({token_hash:p.get("token_hash"),type})});
+    if(!res.ok)throw new Error("This sign-in link is invalid, expired, or already used. Request a new link.");
+    session=normalizeSession(await res.json());
+  }else if(p.get("code")){
+    throw new Error("This link belongs to a different sign-in flow. Return to sign in and request a fresh link from this website.");
+  }else session=normalizeSession(Object.fromEntries(p));
+  if(!session)throw new Error("This sign-in link is incomplete. Request a new link from the sign-in page.");
+  const res=await fetch(`${SUPABASE_URL}/auth/v1/user`,{headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${session.access_token}`}});
+  if(!res.ok)throw new Error("This sign-in session could not be verified. Request a new link.");
+  session.user=await res.json();
+  if(!session.user?.id)throw new Error("No verified user was returned. Please request a new link.");
+  persistSession(session);return session;
+}

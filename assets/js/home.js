@@ -1,3 +1,11 @@
+import {hasAuthPayload,validateSession} from "./supabase.js";
+if(hasAuthPayload())location.replace("/auth-callback.html"+location.search+location.hash);
+else void validateSession().then(session=>{
+  if(!session)return;
+  const links=document.querySelectorAll('.head-right a[href="start.html"]');
+  if(links[0]){links[0].textContent="My profile";links[0].href="profile.html"}
+  if(links[1]){links[1].textContent="Dashboard →";links[1].href="dashboard.html"}
+}).catch(()=>{});
 import {profile,visitorId} from "./site.js";
 
 const input=document.querySelector("#homeDemoInput");
