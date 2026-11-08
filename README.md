@@ -1,3 +1,7 @@
+## Live Website
+
+https://turtle-study-buddy.pages.dev/
+
 # 🐢 Turtle Study Buddy
 
 A teen-friendly AI study companion with a cute, friendly turtle mascot.
